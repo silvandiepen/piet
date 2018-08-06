@@ -1,0 +1,25 @@
+{
+  "name": "piet",
+  "version": "0.0.1",
+  "description": "Piets Style",
+  "main": "index.scss",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/piet.git"
+  },
+  "keywords": [
+    "style",
+    "scss",
+    "sass",
+    "framework"
+  ],
+  "author": "Sil van Diepen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silvandiepen/piet/issues"
+  },
+  "homepage": "https://github.com/silvandiepen/piet#readme"
+}
