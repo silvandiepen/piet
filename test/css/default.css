@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .row {
   max-width: 4096;
   width: 100%;
@@ -4058,19 +4057,3 @@ main.center {
   main.center.dark {
     background-color: #303030;
     color: white; }
-
-/* # Module: Grid [function] */
-/* ------------------------- */
-/* Test: Grid returns a viewport value back */
-/*   ✔ [assert-equal] Grid returns a viewport value back */
-/*  */
-/*  */
-/* # Module: Color [function] */
-/* -------------------------- */
-/* Test: Color should respond with the right color */
-/*   ✔ [assert-equal] Color should respond with the right color */
-/*  */
-/* Test: Color should respond with the right opacity */
-/*   ✔ [assert-equal] Color should respond with the right opacity */
-/*  */
-/*  */

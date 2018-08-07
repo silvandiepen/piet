@@ -18,7 +18,7 @@ function isBigger(file1, file2) {
 }
 
 try {
-	getSize("test/css/ext.css");
+	getSize("test/css/empty.css");
 } catch (e) {
 	throw new Error(e);
 }
