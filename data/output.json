@@ -1,7 +1,7 @@
 {
 	"output": [
 		{
-			"css": true,
+			"css": false,
 			"full": false,
 			"background-colors": true,
 			"text-colors": true,

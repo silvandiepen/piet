@@ -1,4 +1,4 @@
-$output-css: true !default; //
+$output-css: false !default; //
 $output-full: false !default; //
 $output-background-colors: true !default; //
 $output-text-colors: true !default; //
@@ -90,7 +90,7 @@ $output-pattern-houndstooth: true !default; //
 $output-pattern-lines: true !default; //
 $output-pattern-zigzag: true !default; //
 $output: (
-	"css": true, 
+	"css": false, 
 	"full": false, 
 	"background-colors": true, 
 	"text-colors": true, 
