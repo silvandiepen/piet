@@ -23,14 +23,14 @@
 }
 
 @function show-output($key) {
-	@if $value {
+	@if $key {
 		@debug "output: #{$key} : #{map-get($output,$key)}";
 	} @else {
 		@each $output-key, $output-value in $output {
 			@debug "output: #{$output-key} : #{$output-value}";
 		}
 	}
-	@return $value;
+	@return $key;
 }
 @function return-output($key) {
 	$value: "";
