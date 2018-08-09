@@ -46,6 +46,8 @@ $output-current: () !default;
 
 @function check-output($arg, $warn: false, $doOutput: true) {
 	$Return: $doOutput;
+
+	@debug $arg;
 	@if map-has-key($output-current, $arg) {
 		@if map-get($output-current, $arg) == false {
 			$Return: false;

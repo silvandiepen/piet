@@ -2,8 +2,8 @@
 @import "functions/index";
 @import "mixins/index";
 @import "grid/index";
-// @import "components/index";
-// @import "spacing";
+@import "components/index";
+@import "spacing";
 
 @if output(css) {
 	body,
