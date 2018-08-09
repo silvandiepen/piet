@@ -1,5 +1,5 @@
 @if output(form-check-color) {
-	[class^="input-check-color"] {
+	.input--check-color {
 		height: auto;
 		width: auto;
 		padding: 0;
@@ -71,8 +71,8 @@
 	@each $colorName, $colorValue in $colors {
 		.input-check-color--#{$colorName} {
 			label:before {
-				background-color: $colorValue;
-				box-shadow: 0 2px 0 0 darken($colorValue, 20%);
+				background-color: var(--check-color, #{$colorValue});
+				box-shadow: 0 2px 0 0 var(--check-color, #{darken($colorValue, 20%)});
 			}
 			label:after {
 				background-color: contra($colorName);

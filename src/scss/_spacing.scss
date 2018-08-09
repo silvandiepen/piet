@@ -1,4 +1,4 @@
-@if output(spacing) {
+@if output("spacing") {
 	h1,
 	h2,
 	h3,
@@ -7,7 +7,11 @@
 	h6,
 	pre,
 	p,
+	.input--field,
 	form {
+		& + .input--field {
+			margin-top: 1rem;
+		}
 		& + h1 {
 			margin-top: 0.75rem;
 		}

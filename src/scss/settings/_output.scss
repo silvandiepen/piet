@@ -65,6 +65,7 @@ $output-form-input: true !default; //
 $output-form-textarea: true !default; //
 $output-form-select: true !default; //
 $output-form-label: true !default; //
+$output-form-field: true !default; //
 $output-helpers: true !default; //
 $output-reset: true !default; //
 $output-reset-meyerweb: true !default; //
@@ -157,6 +158,7 @@ $output: (
 	"form-textarea": true, 
 	"form-select": true, 
 	"form-label": true, 
+	"form-field": true, 
 	"helpers": true, 
 	"reset": true, 
 	"reset-meyerweb": true, 
