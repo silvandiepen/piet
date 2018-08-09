@@ -120,27 +120,27 @@
 	@for $a from 0 through $grid-columns {
 		$percentage: percentage($a/$grid-columns); //
 		$column: #{$a}#{$childClass};
-		@if $output-grid-column {
+		@if output(grid-column) {
 			&.#{$base-prefix}column-#{$column} {
 				width: #{$percentage};
-				@if $output-grid-cssgrid {
+				@if output(grid-cssgrid) {
 					@supports (display: grid) {
 						width: #{$a}fr;
 					}
 				}
 			}
 		}
-		@if $output-grid-offset {
+		@if output(grid-offset) {
 			&.#{$base-prefix}offset-#{$column} {
 				margin-left: #{$percentage};
 			}
 		}
-		@if $output-grid-push {
+		@if output(grid-push) {
 			&.#{$base-prefix}push-#{$column} {
 				margin-right: #{$percentage};
 			}
 		}
-		@if $output-grid-pull {
+		@if output(grid-pull) {
 			&.#{$base-prefix}pull-#{$column} {
 				margin-left: -#{$percentage};
 			}
@@ -183,17 +183,17 @@
 					width: $percentage;
 				}
 
-				@if $output-grid-offset {
+				@if output(grid-offset) {
 					&.#{$base-prefix}offset-#{$bp-name}-only-#{$a}#{$childClass} {
 						margin-left: $percentage;
 					}
 				}
-				@if $output-grid-push {
+				@if output(grid-push) {
 					&.#{$base-prefix}push-#{$bp-name}-only-#{$a}#{$childClass} {
 						margin-right: $percentage;
 					}
 				}
-				@if $output-grid-pull {
+				@if output(grid-pull) {
 					&.#{$base-prefix}pull-#{$bp-name}-only-#{$a}#{$childClass} {
 						margin-left: -#{$percentage};
 					}
@@ -232,17 +232,17 @@
 						}
 					}
 				}
-				@if $output-grid-offset {
+				@if output(grid-offset) {
 					&.#{$base-prefix}offset-#{$bp-name}-#{$a}#{$childClass} {
 						margin-left: $percentage;
 					}
 				}
-				@if $output-grid-push {
+				@if output(grid-push) {
 					&.#{$base-prefix}push-#{$bp-name}-#{$a}#{$childClass} {
 						margin-right: $percentage;
 					}
 				}
-				@if $output-grid-pull {
+				@if output(grid-pull) {
 					&.#{$base-prefix}pull-#{$bp-name}-#{$a}#{$childClass} {
 						margin-left: -#{$percentage};
 					}

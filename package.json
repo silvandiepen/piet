@@ -4,11 +4,12 @@
 	"description": "Piets Style",
 	"main": "index.scss",
 	"scripts": {
-		"test": "npm run settings && npm run test-default && npm run test-full && npm run test-empty && node test/test.js",
+		"test": "npm run settings && npm run test-default && npm run test-full && npm run test-empty && npm run test-output && node test/test.js",
 		"test-functions": "node-sass test/scss/index.scss test/css/functions.css",
 		"test-empty": "node-sass test/scss/empty.scss test/css/empty.css",
 		"test-default": "node-sass test/scss/default.scss test/css/default.css",
 		"test-full": "node-sass test/scss/full.scss test/css/full.css",
+		"test-output": "node-sass test/scss/output.scss test/css/output.css",
 		"settings": "node scripts/json-to-css.js",
 		"dev": "npm run settings",
 		"build": "npm run settings && rm -rf dist/**/* && npm run build-dist",
@@ -24,7 +25,7 @@
 	"keywords": [
 		"style",
 		"scss",
-		"sass",
+		"node-sass",
 		"framework"
 	],
 	"author": "Sil van Diepen",

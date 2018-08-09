@@ -4,6 +4,12 @@
 // the value from the given output if true or false in the settings.
 //
 
+// Let check if the output is set already, if not. Let's set it.
+$output-current: () !default;
+@if length($output-current) < 1 {
+	$output-current: $output;
+}
+
 @function output($args...) {
 	// Set a default of output true
 	$doOutput: true;
@@ -21,16 +27,16 @@
 		}
 	}
 	//
-	//	The overruler to create all the css
-	//
-	@if $output-full == true {
-		$doOutput: true;
-	}
-	//
 	//  Check the overall setting. If false, do not output any css
 	//
-	@if $output-css == false {
+	@if map-get($output-current, css) == false OR $output-css == true {
 		$doOutput: false;
+	}
+	//
+	//	The overruler to create all the css
+	//
+	@if map-get($output-current, full) == true OR $output-full == true {
+		$doOutput: true;
 	}
 	//
 	//      In the end, determine if this prop should return anything.
@@ -40,8 +46,8 @@
 
 @function check-output($arg, $warn: false, $doOutput: true) {
 	$Return: $doOutput;
-	@if map-has-key($output, $arg) {
-		@if map-get($output, $arg) == false {
+	@if map-has-key($output-current, $arg) {
+		@if map-get($output-current, $arg) == false {
 			$Return: false;
 		}
 		//

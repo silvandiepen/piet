@@ -46,9 +46,7 @@
 					color: currentColor;
 				}
 			}
-		}
-
-		@elseif ($type == "flow") {
+		} @else if ($type == "flow") {
 			#{$n}--#{$mqType} {
 				max-width: 100vw;
 				overflow: auto;
@@ -86,8 +84,7 @@
 					color: currentColor;
 				}
 			}
-		}
-		@elseif ($type == "left") {
+		} @else if ($type == "left") {
 			#{$n}--#{$mqType} {
 				background-color: var(--menu-bg, transparent);
 				overflow: auto;
@@ -153,8 +150,7 @@
 					color: var(--menu-text, currentColor);
 				}
 			}
-		}
-		@elseif ($type == "mobile") {
+		} @else if ($type == "mobile") {
 			input#{$n}__trigger-input:checked {
 				& ~ #{$n}--#{$mqType} {
 					transform: translateX(0%);
