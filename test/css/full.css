@@ -5659,6 +5659,11 @@
   --color-offwhite-g: 247;
   --color-offwhite-b: 247;
   --color-offwhite-rgb: 247, 247, 247;
+  --color-gray: #7f7f7f;
+  --color-gray-r: 127;
+  --color-gray-g: 127;
+  --color-gray-b: 127;
+  --color-gray-rgb: 127, 127, 127;
   --color-green: #10c565;
   --color-green-r: 16;
   --color-green-g: 197;
@@ -5767,6 +5772,21 @@
 .color-offwhite,
 .color-Offwhite {
   color: #f7f7f7; }
+
+/*
+		Create background classes. With the first capital and without. 
+	*/
+.bg-gray,
+.bg-Gray {
+  background-color: #7f7f7f;
+  color: white; }
+
+/*
+		Create color classes to define text color.
+	*/
+.color-gray,
+.color-Gray {
+  color: #7f7f7f; }
 
 /*
 		Create background classes. With the first capital and without. 
@@ -6075,7 +6095,7 @@ blockquote {
 .button, [class^="button-icon"], input[type="button"]:not(.button):not([class^="button-icon"]),
 input[type="submit"]:not(.button):not([class^="button-icon"]),
 button, [class^='button-basic'],
-[class*=' button-basic'], input[type="submit"], input[type="button"] {
+[class*=' button-basic'], .input--field input[type="submit"], .input--field input[type="button"] {
   display: inline-block;
   border-radius: 3px;
   width: auto;
@@ -6088,14 +6108,16 @@ button, [class^='button-basic'],
   line-height: 1em;
   border-bottom: var(--button-depth, 2px) solid #188fb3;
   text-decoration: none; }
-  .button:hover, :hover[class^="button-icon"],
+  .button:hover, :hover[class^="button-icon"], input:hover[type="button"]:not(.button):not([class^="button-icon"]),
+  input:hover[type="submit"]:not(.button):not([class^="button-icon"]),
   button:hover, :hover[class^='button-basic'],
-  :hover[class*=' button-basic'], input:hover[type="submit"], input:hover[type="button"] {
+  :hover[class*=' button-basic'], .input--field input:hover[type="submit"], .input--field input:hover[type="button"] {
     background-color: #188fb3;
     border-bottom: var(--button-depth, 2px) solid #126b86; }
-  .button:focus, :focus[class^="button-icon"],
+  .button:focus, :focus[class^="button-icon"], input:focus[type="button"]:not(.button):not([class^="button-icon"]),
+  input:focus[type="submit"]:not(.button):not([class^="button-icon"]),
   button:focus, :focus[class^='button-basic'],
-  :focus[class*=' button-basic'], input:focus[type="submit"], input:focus[type="button"] {
+  :focus[class*=' button-basic'], .input--field input:focus[type="submit"], .input--field input:focus[type="button"] {
     outline: none;
     box-shadow: 0 0 0.5rem 0 rgba(16, 16, 16, 0.25); }
 
@@ -6150,6 +6172,18 @@ button {
   .button--Offwhite:hover {
     background-color: #dedede;
     border-bottom: var(--button-depth, 2px) solid #c4c4c4; }
+
+
+.button--gray,
+.button--Gray {
+  border-bottom: var(--button-depth, 2px) solid #666666;
+  background-color: #7f7f7f;
+  color: white; }
+  
+  .button--gray:hover,
+  .button--Gray:hover {
+    background-color: #666666;
+    border-bottom: var(--button-depth, 2px) solid #4c4c4c; }
 
 
 .button--green,
@@ -6569,6 +6603,10 @@ button {
   .button__border--offwhite,
   .button__border--Offwhite {
     color: #f7f7f7; }
+  
+  .button__border--gray,
+  .button__border--Gray {
+    color: #7f7f7f; }
   
   .button__border--green,
   .button__border--Green {
@@ -7346,16 +7384,7 @@ dl {
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
 
-.input:not([type="range"]), .input:not([type="checkbox"]), .input:not([type="radio"]), .input:not([type="submit"]), .input[type="text"], .input[type="email"], .input[type="tel"], .input[type="number"], .input[type="url"],
-input:not([type="range"]),
-input:not([type="checkbox"]),
-input:not([type="radio"]),
-input:not([type="submit"]),
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="url"], textarea, select {
+.input--field input[type="text"], .input--field input[type="email"], .input--field input[type="tel"], .input--field input[type="number"], .input--field input[type="password"], .input--field input[type="url"], .input--field textarea, .input--field select {
   background: white;
   border: 1px solid rgba(16, 16, 16, 0.1);
   font-size: 1rem;
@@ -7365,348 +7394,399 @@ input[type="url"], textarea, select {
   min-width: 10rem;
   max-width: 100%;
   -webkit-appearance: none; }
-  .input:not([type="range"])::placeholder, .input:not([type="checkbox"])::placeholder, .input:not([type="radio"])::placeholder, .input:not([type="submit"])::placeholder, .input[type="text"]::placeholder, .input[type="email"]::placeholder, .input[type="tel"]::placeholder, .input[type="number"]::placeholder, .input[type="url"]::placeholder,
-  input:not([type="range"])::placeholder,
-  input:not([type="checkbox"])::placeholder,
-  input:not([type="radio"])::placeholder,
-  input:not([type="submit"])::placeholder,
-  input[type="text"]::placeholder,
-  input[type="email"]::placeholder,
-  input[type="tel"]::placeholder,
-  input[type="number"]::placeholder,
-  input[type="url"]::placeholder, textarea::placeholder, select::placeholder {
+  .input--field input[type="text"]::placeholder, .input--field input[type="email"]::placeholder, .input--field input[type="tel"]::placeholder, .input--field input[type="number"]::placeholder, .input--field input[type="password"]::placeholder, .input--field input[type="url"]::placeholder, .input--field textarea::placeholder, .input--field select::placeholder {
     color: rgba(16, 16, 16, 0.1);
     opacity: 1;
     transition: filter 0.3s; }
-  .input:focus:not([type="range"]), .input:focus:not([type="checkbox"]), .input:focus:not([type="radio"]), .input:focus:not([type="submit"]), .input:focus[type="text"], .input:focus[type="email"], .input:focus[type="tel"], .input:focus[type="number"], .input:focus[type="url"],
-  input:focus:not([type="range"]),
-  input:focus:not([type="checkbox"]),
-  input:focus:not([type="radio"]),
-  input:focus:not([type="submit"]),
-  input:focus[type="text"],
-  input:focus[type="email"],
-  input:focus[type="tel"],
-  input:focus[type="number"],
-  input:focus[type="url"], textarea:focus, select:focus {
+  .input--field input:focus[type="text"], .input--field input:focus[type="email"], .input--field input:focus[type="tel"], .input--field input:focus[type="number"], .input--field input:focus[type="password"], .input--field input:focus[type="url"], .input--field textarea:focus, .input--field select:focus {
     outline: 2px solid rgba(30, 179, 224, 0.25); }
-  .input:not([type="range"]):focus::placeholder, .input:not([type="checkbox"]):focus::placeholder, .input:not([type="radio"]):focus::placeholder, .input:not([type="submit"]):focus::placeholder, .input[type="text"]:focus::placeholder, .input[type="email"]:focus::placeholder, .input[type="tel"]:focus::placeholder, .input[type="number"]:focus::placeholder, .input[type="url"]:focus::placeholder,
-  input:not([type="range"]):focus::placeholder,
-  input:not([type="checkbox"]):focus::placeholder,
-  input:not([type="radio"]):focus::placeholder,
-  input:not([type="submit"]):focus::placeholder,
-  input[type="text"]:focus::placeholder,
-  input[type="email"]:focus::placeholder,
-  input[type="tel"]:focus::placeholder,
-  input[type="number"]:focus::placeholder,
-  input[type="url"]:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder, .input:not([type="range"]):focus:hover::placeholder, .input:not([type="checkbox"]):focus:hover::placeholder, .input:not([type="radio"]):focus:hover::placeholder, .input:not([type="submit"]):focus:hover::placeholder, .input[type="text"]:focus:hover::placeholder, .input[type="email"]:focus:hover::placeholder, .input[type="tel"]:focus:hover::placeholder, .input[type="number"]:focus:hover::placeholder, .input[type="url"]:focus:hover::placeholder,
-  input:not([type="range"]):focus:hover::placeholder,
-  input:not([type="checkbox"]):focus:hover::placeholder,
-  input:not([type="radio"]):focus:hover::placeholder,
-  input:not([type="submit"]):focus:hover::placeholder,
-  input[type="text"]:focus:hover::placeholder,
-  input[type="email"]:focus:hover::placeholder,
-  input[type="tel"]:focus:hover::placeholder,
-  input[type="number"]:focus:hover::placeholder,
-  input[type="url"]:focus:hover::placeholder, textarea:focus:hover::placeholder, select:focus:hover::placeholder {
+  .input--field input[type="text"]:focus::placeholder, .input--field input[type="email"]:focus::placeholder, .input--field input[type="tel"]:focus::placeholder, .input--field input[type="number"]:focus::placeholder, .input--field input[type="password"]:focus::placeholder, .input--field input[type="url"]:focus::placeholder, .input--field textarea:focus::placeholder, .input--field select:focus::placeholder, .input--field input[type="text"]:focus:hover::placeholder, .input--field input[type="email"]:focus:hover::placeholder, .input--field input[type="tel"]:focus:hover::placeholder, .input--field input[type="number"]:focus:hover::placeholder, .input--field input[type="password"]:focus:hover::placeholder, .input--field input[type="url"]:focus:hover::placeholder, .input--field textarea:focus:hover::placeholder, .input--field select:focus:hover::placeholder {
     filter: blur(5px); }
-  .input:hover:not([type="range"]), .input:hover:not([type="checkbox"]), .input:hover:not([type="radio"]), .input:hover:not([type="submit"]), .input:hover[type="text"], .input:hover[type="email"], .input:hover[type="tel"], .input:hover[type="number"], .input:hover[type="url"],
-  input:hover:not([type="range"]),
-  input:hover:not([type="checkbox"]),
-  input:hover:not([type="radio"]),
-  input:hover:not([type="submit"]),
-  input:hover[type="text"],
-  input:hover[type="email"],
-  input:hover[type="tel"],
-  input:hover[type="number"],
-  input:hover[type="url"], textarea:hover, select:hover {
+  .input--field input:hover[type="text"], .input--field input:hover[type="email"], .input--field input:hover[type="tel"], .input--field input:hover[type="number"], .input--field input:hover[type="password"], .input--field input:hover[type="url"], .input--field textarea:hover, .input--field select:hover {
     border: 1px solid rgba(16, 16, 16, 0.2); }
-    .input:not([type="range"]):hover::placeholder, .input:not([type="checkbox"]):hover::placeholder, .input:not([type="radio"]):hover::placeholder, .input:not([type="submit"]):hover::placeholder, .input[type="text"]:hover::placeholder, .input[type="email"]:hover::placeholder, .input[type="tel"]:hover::placeholder, .input[type="number"]:hover::placeholder, .input[type="url"]:hover::placeholder,
-    input:not([type="range"]):hover::placeholder,
-    input:not([type="checkbox"]):hover::placeholder,
-    input:not([type="radio"]):hover::placeholder,
-    input:not([type="submit"]):hover::placeholder,
-    input[type="text"]:hover::placeholder,
-    input[type="email"]:hover::placeholder,
-    input[type="tel"]:hover::placeholder,
-    input[type="number"]:hover::placeholder,
-    input[type="url"]:hover::placeholder, textarea:hover::placeholder, select:hover::placeholder {
+    .input--field input[type="text"]:hover::placeholder, .input--field input[type="email"]:hover::placeholder, .input--field input[type="tel"]:hover::placeholder, .input--field input[type="number"]:hover::placeholder, .input--field input[type="password"]:hover::placeholder, .input--field input[type="url"]:hover::placeholder, .input--field textarea:hover::placeholder, .input--field select:hover::placeholder {
       color: rgba(16, 16, 16, 0.2);
       filter: blur(0px); }
-  --ghost.input:not([type="range"]), --naked.input:not([type="range"]), --ghost.input:not([type="checkbox"]), --naked.input:not([type="checkbox"]), --ghost.input:not([type="radio"]), --naked.input:not([type="radio"]), --ghost.input:not([type="submit"]), --naked.input:not([type="submit"]), --ghost.input[type="text"], --naked.input[type="text"], --ghost.input[type="email"], --naked.input[type="email"], --ghost.input[type="tel"], --naked.input[type="tel"], --ghost.input[type="number"], --naked.input[type="number"], --ghost.input[type="url"], --naked.input[type="url"] {
+  .input--field .input--ghost input[type="text"], .input--field .input--ghost input[type="email"], .input--field .input--ghost input[type="tel"], .input--field .input--ghost input[type="number"], .input--field .input--ghost input[type="password"], .input--field .input--ghost input[type="url"], .input--field .input--naked input[type="text"], .input--field .input--naked input[type="email"], .input--field .input--naked input[type="tel"], .input--field .input--naked input[type="number"], .input--field .input--naked input[type="password"], .input--field .input--naked input[type="url"] {
     background-color: transparent;
     color: currentColor;
     border: 1px solid red; }
-    .bg-black --ghost.input:not([type="range"]), .bg-black --naked.input:not([type="range"]), .bg-black --ghost.input:not([type="checkbox"]), .bg-black --naked.input:not([type="checkbox"]), .bg-black --ghost.input:not([type="radio"]), .bg-black --naked.input:not([type="radio"]), .bg-black --ghost.input:not([type="submit"]), .bg-black --naked.input:not([type="submit"]), .bg-black --ghost.input[type="text"], .bg-black --naked.input[type="text"], .bg-black --ghost.input[type="email"], .bg-black --naked.input[type="email"], .bg-black --ghost.input[type="tel"], .bg-black --naked.input[type="tel"], .bg-black --ghost.input[type="number"], .bg-black --naked.input[type="number"], .bg-black --ghost.input[type="url"], .bg-black --naked.input[type="url"],
-    .bg-Black --ghost.input:not([type="range"]),
-    .bg-Black --naked.input:not([type="range"]),
-    .bg-Black --ghost.input:not([type="checkbox"]),
-    .bg-Black --naked.input:not([type="checkbox"]),
-    .bg-Black --ghost.input:not([type="radio"]),
-    .bg-Black --naked.input:not([type="radio"]),
-    .bg-Black --ghost.input:not([type="submit"]),
-    .bg-Black --naked.input:not([type="submit"]),
-    .bg-Black --ghost.input[type="text"],
-    .bg-Black --naked.input[type="text"],
-    .bg-Black --ghost.input[type="email"],
-    .bg-Black --naked.input[type="email"],
-    .bg-Black --ghost.input[type="tel"],
-    .bg-Black --naked.input[type="tel"],
-    .bg-Black --ghost.input[type="number"],
-    .bg-Black --naked.input[type="number"],
-    .bg-Black --ghost.input[type="url"],
-    .bg-Black --naked.input[type="url"] {
+    .bg-black .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-black input[type="text"], .bg-black .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-black input[type="email"], .bg-black .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-black input[type="tel"], .bg-black .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-black input[type="number"], .bg-black .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-black input[type="password"], .bg-black .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-black input[type="url"], .bg-black .input--field .input--naked input[type="text"], .input--field .input--naked .bg-black input[type="text"], .bg-black .input--field .input--naked input[type="email"], .input--field .input--naked .bg-black input[type="email"], .bg-black .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-black input[type="tel"], .bg-black .input--field .input--naked input[type="number"], .input--field .input--naked .bg-black input[type="number"], .bg-black .input--field .input--naked input[type="password"], .input--field .input--naked .bg-black input[type="password"], .bg-black .input--field .input--naked input[type="url"], .input--field .input--naked .bg-black input[type="url"],
+    .bg-Black .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Black input[type="text"],
+    .bg-Black .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Black input[type="email"],
+    .bg-Black .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Black input[type="tel"],
+    .bg-Black .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Black input[type="number"],
+    .bg-Black .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Black input[type="password"],
+    .bg-Black .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Black input[type="url"],
+    .bg-Black .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Black input[type="text"],
+    .bg-Black .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Black input[type="email"],
+    .bg-Black .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Black input[type="tel"],
+    .bg-Black .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Black input[type="number"],
+    .bg-Black .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Black input[type="password"],
+    .bg-Black .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Black input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-dark --ghost.input:not([type="range"]), .bg-dark --naked.input:not([type="range"]), .bg-dark --ghost.input:not([type="checkbox"]), .bg-dark --naked.input:not([type="checkbox"]), .bg-dark --ghost.input:not([type="radio"]), .bg-dark --naked.input:not([type="radio"]), .bg-dark --ghost.input:not([type="submit"]), .bg-dark --naked.input:not([type="submit"]), .bg-dark --ghost.input[type="text"], .bg-dark --naked.input[type="text"], .bg-dark --ghost.input[type="email"], .bg-dark --naked.input[type="email"], .bg-dark --ghost.input[type="tel"], .bg-dark --naked.input[type="tel"], .bg-dark --ghost.input[type="number"], .bg-dark --naked.input[type="number"], .bg-dark --ghost.input[type="url"], .bg-dark --naked.input[type="url"],
-    .bg-Dark --ghost.input:not([type="range"]),
-    .bg-Dark --naked.input:not([type="range"]),
-    .bg-Dark --ghost.input:not([type="checkbox"]),
-    .bg-Dark --naked.input:not([type="checkbox"]),
-    .bg-Dark --ghost.input:not([type="radio"]),
-    .bg-Dark --naked.input:not([type="radio"]),
-    .bg-Dark --ghost.input:not([type="submit"]),
-    .bg-Dark --naked.input:not([type="submit"]),
-    .bg-Dark --ghost.input[type="text"],
-    .bg-Dark --naked.input[type="text"],
-    .bg-Dark --ghost.input[type="email"],
-    .bg-Dark --naked.input[type="email"],
-    .bg-Dark --ghost.input[type="tel"],
-    .bg-Dark --naked.input[type="tel"],
-    .bg-Dark --ghost.input[type="number"],
-    .bg-Dark --naked.input[type="number"],
-    .bg-Dark --ghost.input[type="url"],
-    .bg-Dark --naked.input[type="url"] {
+    .bg-dark .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-dark input[type="text"], .bg-dark .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-dark input[type="email"], .bg-dark .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-dark input[type="tel"], .bg-dark .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-dark input[type="number"], .bg-dark .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-dark input[type="password"], .bg-dark .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-dark input[type="url"], .bg-dark .input--field .input--naked input[type="text"], .input--field .input--naked .bg-dark input[type="text"], .bg-dark .input--field .input--naked input[type="email"], .input--field .input--naked .bg-dark input[type="email"], .bg-dark .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-dark input[type="tel"], .bg-dark .input--field .input--naked input[type="number"], .input--field .input--naked .bg-dark input[type="number"], .bg-dark .input--field .input--naked input[type="password"], .input--field .input--naked .bg-dark input[type="password"], .bg-dark .input--field .input--naked input[type="url"], .input--field .input--naked .bg-dark input[type="url"],
+    .bg-Dark .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Dark input[type="text"],
+    .bg-Dark .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Dark input[type="email"],
+    .bg-Dark .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Dark input[type="tel"],
+    .bg-Dark .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Dark input[type="number"],
+    .bg-Dark .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Dark input[type="password"],
+    .bg-Dark .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Dark input[type="url"],
+    .bg-Dark .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Dark input[type="text"],
+    .bg-Dark .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Dark input[type="email"],
+    .bg-Dark .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Dark input[type="tel"],
+    .bg-Dark .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Dark input[type="number"],
+    .bg-Dark .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Dark input[type="password"],
+    .bg-Dark .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Dark input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-white --ghost.input:not([type="range"]), .bg-white --naked.input:not([type="range"]), .bg-white --ghost.input:not([type="checkbox"]), .bg-white --naked.input:not([type="checkbox"]), .bg-white --ghost.input:not([type="radio"]), .bg-white --naked.input:not([type="radio"]), .bg-white --ghost.input:not([type="submit"]), .bg-white --naked.input:not([type="submit"]), .bg-white --ghost.input[type="text"], .bg-white --naked.input[type="text"], .bg-white --ghost.input[type="email"], .bg-white --naked.input[type="email"], .bg-white --ghost.input[type="tel"], .bg-white --naked.input[type="tel"], .bg-white --ghost.input[type="number"], .bg-white --naked.input[type="number"], .bg-white --ghost.input[type="url"], .bg-white --naked.input[type="url"],
-    .bg-White --ghost.input:not([type="range"]),
-    .bg-White --naked.input:not([type="range"]),
-    .bg-White --ghost.input:not([type="checkbox"]),
-    .bg-White --naked.input:not([type="checkbox"]),
-    .bg-White --ghost.input:not([type="radio"]),
-    .bg-White --naked.input:not([type="radio"]),
-    .bg-White --ghost.input:not([type="submit"]),
-    .bg-White --naked.input:not([type="submit"]),
-    .bg-White --ghost.input[type="text"],
-    .bg-White --naked.input[type="text"],
-    .bg-White --ghost.input[type="email"],
-    .bg-White --naked.input[type="email"],
-    .bg-White --ghost.input[type="tel"],
-    .bg-White --naked.input[type="tel"],
-    .bg-White --ghost.input[type="number"],
-    .bg-White --naked.input[type="number"],
-    .bg-White --ghost.input[type="url"],
-    .bg-White --naked.input[type="url"] {
+    .bg-white .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-white input[type="text"], .bg-white .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-white input[type="email"], .bg-white .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-white input[type="tel"], .bg-white .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-white input[type="number"], .bg-white .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-white input[type="password"], .bg-white .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-white input[type="url"], .bg-white .input--field .input--naked input[type="text"], .input--field .input--naked .bg-white input[type="text"], .bg-white .input--field .input--naked input[type="email"], .input--field .input--naked .bg-white input[type="email"], .bg-white .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-white input[type="tel"], .bg-white .input--field .input--naked input[type="number"], .input--field .input--naked .bg-white input[type="number"], .bg-white .input--field .input--naked input[type="password"], .input--field .input--naked .bg-white input[type="password"], .bg-white .input--field .input--naked input[type="url"], .input--field .input--naked .bg-white input[type="url"],
+    .bg-White .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-White input[type="text"],
+    .bg-White .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-White input[type="email"],
+    .bg-White .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-White input[type="tel"],
+    .bg-White .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-White input[type="number"],
+    .bg-White .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-White input[type="password"],
+    .bg-White .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-White input[type="url"],
+    .bg-White .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-White input[type="text"],
+    .bg-White .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-White input[type="email"],
+    .bg-White .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-White input[type="tel"],
+    .bg-White .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-White input[type="number"],
+    .bg-White .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-White input[type="password"],
+    .bg-White .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-White input[type="url"] {
       color: #101010;
       border-color: #101010; }
-    .bg-offwhite --ghost.input:not([type="range"]), .bg-offwhite --naked.input:not([type="range"]), .bg-offwhite --ghost.input:not([type="checkbox"]), .bg-offwhite --naked.input:not([type="checkbox"]), .bg-offwhite --ghost.input:not([type="radio"]), .bg-offwhite --naked.input:not([type="radio"]), .bg-offwhite --ghost.input:not([type="submit"]), .bg-offwhite --naked.input:not([type="submit"]), .bg-offwhite --ghost.input[type="text"], .bg-offwhite --naked.input[type="text"], .bg-offwhite --ghost.input[type="email"], .bg-offwhite --naked.input[type="email"], .bg-offwhite --ghost.input[type="tel"], .bg-offwhite --naked.input[type="tel"], .bg-offwhite --ghost.input[type="number"], .bg-offwhite --naked.input[type="number"], .bg-offwhite --ghost.input[type="url"], .bg-offwhite --naked.input[type="url"],
-    .bg-Offwhite --ghost.input:not([type="range"]),
-    .bg-Offwhite --naked.input:not([type="range"]),
-    .bg-Offwhite --ghost.input:not([type="checkbox"]),
-    .bg-Offwhite --naked.input:not([type="checkbox"]),
-    .bg-Offwhite --ghost.input:not([type="radio"]),
-    .bg-Offwhite --naked.input:not([type="radio"]),
-    .bg-Offwhite --ghost.input:not([type="submit"]),
-    .bg-Offwhite --naked.input:not([type="submit"]),
-    .bg-Offwhite --ghost.input[type="text"],
-    .bg-Offwhite --naked.input[type="text"],
-    .bg-Offwhite --ghost.input[type="email"],
-    .bg-Offwhite --naked.input[type="email"],
-    .bg-Offwhite --ghost.input[type="tel"],
-    .bg-Offwhite --naked.input[type="tel"],
-    .bg-Offwhite --ghost.input[type="number"],
-    .bg-Offwhite --naked.input[type="number"],
-    .bg-Offwhite --ghost.input[type="url"],
-    .bg-Offwhite --naked.input[type="url"] {
+    .bg-offwhite .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-offwhite input[type="text"], .bg-offwhite .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-offwhite input[type="email"], .bg-offwhite .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-offwhite input[type="tel"], .bg-offwhite .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-offwhite input[type="number"], .bg-offwhite .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-offwhite input[type="password"], .bg-offwhite .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-offwhite input[type="url"], .bg-offwhite .input--field .input--naked input[type="text"], .input--field .input--naked .bg-offwhite input[type="text"], .bg-offwhite .input--field .input--naked input[type="email"], .input--field .input--naked .bg-offwhite input[type="email"], .bg-offwhite .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-offwhite input[type="tel"], .bg-offwhite .input--field .input--naked input[type="number"], .input--field .input--naked .bg-offwhite input[type="number"], .bg-offwhite .input--field .input--naked input[type="password"], .input--field .input--naked .bg-offwhite input[type="password"], .bg-offwhite .input--field .input--naked input[type="url"], .input--field .input--naked .bg-offwhite input[type="url"],
+    .bg-Offwhite .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Offwhite input[type="text"],
+    .bg-Offwhite .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Offwhite input[type="email"],
+    .bg-Offwhite .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Offwhite input[type="tel"],
+    .bg-Offwhite .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Offwhite input[type="number"],
+    .bg-Offwhite .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Offwhite input[type="password"],
+    .bg-Offwhite .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Offwhite input[type="url"],
+    .bg-Offwhite .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Offwhite input[type="text"],
+    .bg-Offwhite .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Offwhite input[type="email"],
+    .bg-Offwhite .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Offwhite input[type="tel"],
+    .bg-Offwhite .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Offwhite input[type="number"],
+    .bg-Offwhite .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Offwhite input[type="password"],
+    .bg-Offwhite .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Offwhite input[type="url"] {
       color: #101010;
       border-color: #101010; }
-    .bg-green --ghost.input:not([type="range"]), .bg-green --naked.input:not([type="range"]), .bg-green --ghost.input:not([type="checkbox"]), .bg-green --naked.input:not([type="checkbox"]), .bg-green --ghost.input:not([type="radio"]), .bg-green --naked.input:not([type="radio"]), .bg-green --ghost.input:not([type="submit"]), .bg-green --naked.input:not([type="submit"]), .bg-green --ghost.input[type="text"], .bg-green --naked.input[type="text"], .bg-green --ghost.input[type="email"], .bg-green --naked.input[type="email"], .bg-green --ghost.input[type="tel"], .bg-green --naked.input[type="tel"], .bg-green --ghost.input[type="number"], .bg-green --naked.input[type="number"], .bg-green --ghost.input[type="url"], .bg-green --naked.input[type="url"],
-    .bg-Green --ghost.input:not([type="range"]),
-    .bg-Green --naked.input:not([type="range"]),
-    .bg-Green --ghost.input:not([type="checkbox"]),
-    .bg-Green --naked.input:not([type="checkbox"]),
-    .bg-Green --ghost.input:not([type="radio"]),
-    .bg-Green --naked.input:not([type="radio"]),
-    .bg-Green --ghost.input:not([type="submit"]),
-    .bg-Green --naked.input:not([type="submit"]),
-    .bg-Green --ghost.input[type="text"],
-    .bg-Green --naked.input[type="text"],
-    .bg-Green --ghost.input[type="email"],
-    .bg-Green --naked.input[type="email"],
-    .bg-Green --ghost.input[type="tel"],
-    .bg-Green --naked.input[type="tel"],
-    .bg-Green --ghost.input[type="number"],
-    .bg-Green --naked.input[type="number"],
-    .bg-Green --ghost.input[type="url"],
-    .bg-Green --naked.input[type="url"] {
+    .bg-gray .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-gray input[type="text"], .bg-gray .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-gray input[type="email"], .bg-gray .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-gray input[type="tel"], .bg-gray .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-gray input[type="number"], .bg-gray .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-gray input[type="password"], .bg-gray .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-gray input[type="url"], .bg-gray .input--field .input--naked input[type="text"], .input--field .input--naked .bg-gray input[type="text"], .bg-gray .input--field .input--naked input[type="email"], .input--field .input--naked .bg-gray input[type="email"], .bg-gray .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-gray input[type="tel"], .bg-gray .input--field .input--naked input[type="number"], .input--field .input--naked .bg-gray input[type="number"], .bg-gray .input--field .input--naked input[type="password"], .input--field .input--naked .bg-gray input[type="password"], .bg-gray .input--field .input--naked input[type="url"], .input--field .input--naked .bg-gray input[type="url"],
+    .bg-Gray .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Gray input[type="text"],
+    .bg-Gray .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Gray input[type="email"],
+    .bg-Gray .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Gray input[type="tel"],
+    .bg-Gray .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Gray input[type="number"],
+    .bg-Gray .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Gray input[type="password"],
+    .bg-Gray .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Gray input[type="url"],
+    .bg-Gray .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Gray input[type="text"],
+    .bg-Gray .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Gray input[type="email"],
+    .bg-Gray .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Gray input[type="tel"],
+    .bg-Gray .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Gray input[type="number"],
+    .bg-Gray .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Gray input[type="password"],
+    .bg-Gray .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Gray input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-blue --ghost.input:not([type="range"]), .bg-blue --naked.input:not([type="range"]), .bg-blue --ghost.input:not([type="checkbox"]), .bg-blue --naked.input:not([type="checkbox"]), .bg-blue --ghost.input:not([type="radio"]), .bg-blue --naked.input:not([type="radio"]), .bg-blue --ghost.input:not([type="submit"]), .bg-blue --naked.input:not([type="submit"]), .bg-blue --ghost.input[type="text"], .bg-blue --naked.input[type="text"], .bg-blue --ghost.input[type="email"], .bg-blue --naked.input[type="email"], .bg-blue --ghost.input[type="tel"], .bg-blue --naked.input[type="tel"], .bg-blue --ghost.input[type="number"], .bg-blue --naked.input[type="number"], .bg-blue --ghost.input[type="url"], .bg-blue --naked.input[type="url"],
-    .bg-Blue --ghost.input:not([type="range"]),
-    .bg-Blue --naked.input:not([type="range"]),
-    .bg-Blue --ghost.input:not([type="checkbox"]),
-    .bg-Blue --naked.input:not([type="checkbox"]),
-    .bg-Blue --ghost.input:not([type="radio"]),
-    .bg-Blue --naked.input:not([type="radio"]),
-    .bg-Blue --ghost.input:not([type="submit"]),
-    .bg-Blue --naked.input:not([type="submit"]),
-    .bg-Blue --ghost.input[type="text"],
-    .bg-Blue --naked.input[type="text"],
-    .bg-Blue --ghost.input[type="email"],
-    .bg-Blue --naked.input[type="email"],
-    .bg-Blue --ghost.input[type="tel"],
-    .bg-Blue --naked.input[type="tel"],
-    .bg-Blue --ghost.input[type="number"],
-    .bg-Blue --naked.input[type="number"],
-    .bg-Blue --ghost.input[type="url"],
-    .bg-Blue --naked.input[type="url"] {
+    .bg-green .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-green input[type="text"], .bg-green .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-green input[type="email"], .bg-green .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-green input[type="tel"], .bg-green .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-green input[type="number"], .bg-green .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-green input[type="password"], .bg-green .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-green input[type="url"], .bg-green .input--field .input--naked input[type="text"], .input--field .input--naked .bg-green input[type="text"], .bg-green .input--field .input--naked input[type="email"], .input--field .input--naked .bg-green input[type="email"], .bg-green .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-green input[type="tel"], .bg-green .input--field .input--naked input[type="number"], .input--field .input--naked .bg-green input[type="number"], .bg-green .input--field .input--naked input[type="password"], .input--field .input--naked .bg-green input[type="password"], .bg-green .input--field .input--naked input[type="url"], .input--field .input--naked .bg-green input[type="url"],
+    .bg-Green .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Green input[type="text"],
+    .bg-Green .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Green input[type="email"],
+    .bg-Green .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Green input[type="tel"],
+    .bg-Green .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Green input[type="number"],
+    .bg-Green .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Green input[type="password"],
+    .bg-Green .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Green input[type="url"],
+    .bg-Green .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Green input[type="text"],
+    .bg-Green .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Green input[type="email"],
+    .bg-Green .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Green input[type="tel"],
+    .bg-Green .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Green input[type="number"],
+    .bg-Green .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Green input[type="password"],
+    .bg-Green .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Green input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-red --ghost.input:not([type="range"]), .bg-red --naked.input:not([type="range"]), .bg-red --ghost.input:not([type="checkbox"]), .bg-red --naked.input:not([type="checkbox"]), .bg-red --ghost.input:not([type="radio"]), .bg-red --naked.input:not([type="radio"]), .bg-red --ghost.input:not([type="submit"]), .bg-red --naked.input:not([type="submit"]), .bg-red --ghost.input[type="text"], .bg-red --naked.input[type="text"], .bg-red --ghost.input[type="email"], .bg-red --naked.input[type="email"], .bg-red --ghost.input[type="tel"], .bg-red --naked.input[type="tel"], .bg-red --ghost.input[type="number"], .bg-red --naked.input[type="number"], .bg-red --ghost.input[type="url"], .bg-red --naked.input[type="url"],
-    .bg-Red --ghost.input:not([type="range"]),
-    .bg-Red --naked.input:not([type="range"]),
-    .bg-Red --ghost.input:not([type="checkbox"]),
-    .bg-Red --naked.input:not([type="checkbox"]),
-    .bg-Red --ghost.input:not([type="radio"]),
-    .bg-Red --naked.input:not([type="radio"]),
-    .bg-Red --ghost.input:not([type="submit"]),
-    .bg-Red --naked.input:not([type="submit"]),
-    .bg-Red --ghost.input[type="text"],
-    .bg-Red --naked.input[type="text"],
-    .bg-Red --ghost.input[type="email"],
-    .bg-Red --naked.input[type="email"],
-    .bg-Red --ghost.input[type="tel"],
-    .bg-Red --naked.input[type="tel"],
-    .bg-Red --ghost.input[type="number"],
-    .bg-Red --naked.input[type="number"],
-    .bg-Red --ghost.input[type="url"],
-    .bg-Red --naked.input[type="url"] {
+    .bg-blue .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-blue input[type="text"], .bg-blue .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-blue input[type="email"], .bg-blue .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-blue input[type="tel"], .bg-blue .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-blue input[type="number"], .bg-blue .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-blue input[type="password"], .bg-blue .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-blue input[type="url"], .bg-blue .input--field .input--naked input[type="text"], .input--field .input--naked .bg-blue input[type="text"], .bg-blue .input--field .input--naked input[type="email"], .input--field .input--naked .bg-blue input[type="email"], .bg-blue .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-blue input[type="tel"], .bg-blue .input--field .input--naked input[type="number"], .input--field .input--naked .bg-blue input[type="number"], .bg-blue .input--field .input--naked input[type="password"], .input--field .input--naked .bg-blue input[type="password"], .bg-blue .input--field .input--naked input[type="url"], .input--field .input--naked .bg-blue input[type="url"],
+    .bg-Blue .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Blue input[type="text"],
+    .bg-Blue .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Blue input[type="email"],
+    .bg-Blue .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Blue input[type="tel"],
+    .bg-Blue .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Blue input[type="number"],
+    .bg-Blue .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Blue input[type="password"],
+    .bg-Blue .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Blue input[type="url"],
+    .bg-Blue .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Blue input[type="text"],
+    .bg-Blue .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Blue input[type="email"],
+    .bg-Blue .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Blue input[type="tel"],
+    .bg-Blue .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Blue input[type="number"],
+    .bg-Blue .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Blue input[type="password"],
+    .bg-Blue .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Blue input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-brown --ghost.input:not([type="range"]), .bg-brown --naked.input:not([type="range"]), .bg-brown --ghost.input:not([type="checkbox"]), .bg-brown --naked.input:not([type="checkbox"]), .bg-brown --ghost.input:not([type="radio"]), .bg-brown --naked.input:not([type="radio"]), .bg-brown --ghost.input:not([type="submit"]), .bg-brown --naked.input:not([type="submit"]), .bg-brown --ghost.input[type="text"], .bg-brown --naked.input[type="text"], .bg-brown --ghost.input[type="email"], .bg-brown --naked.input[type="email"], .bg-brown --ghost.input[type="tel"], .bg-brown --naked.input[type="tel"], .bg-brown --ghost.input[type="number"], .bg-brown --naked.input[type="number"], .bg-brown --ghost.input[type="url"], .bg-brown --naked.input[type="url"],
-    .bg-Brown --ghost.input:not([type="range"]),
-    .bg-Brown --naked.input:not([type="range"]),
-    .bg-Brown --ghost.input:not([type="checkbox"]),
-    .bg-Brown --naked.input:not([type="checkbox"]),
-    .bg-Brown --ghost.input:not([type="radio"]),
-    .bg-Brown --naked.input:not([type="radio"]),
-    .bg-Brown --ghost.input:not([type="submit"]),
-    .bg-Brown --naked.input:not([type="submit"]),
-    .bg-Brown --ghost.input[type="text"],
-    .bg-Brown --naked.input[type="text"],
-    .bg-Brown --ghost.input[type="email"],
-    .bg-Brown --naked.input[type="email"],
-    .bg-Brown --ghost.input[type="tel"],
-    .bg-Brown --naked.input[type="tel"],
-    .bg-Brown --ghost.input[type="number"],
-    .bg-Brown --naked.input[type="number"],
-    .bg-Brown --ghost.input[type="url"],
-    .bg-Brown --naked.input[type="url"] {
+    .bg-red .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-red input[type="text"], .bg-red .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-red input[type="email"], .bg-red .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-red input[type="tel"], .bg-red .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-red input[type="number"], .bg-red .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-red input[type="password"], .bg-red .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-red input[type="url"], .bg-red .input--field .input--naked input[type="text"], .input--field .input--naked .bg-red input[type="text"], .bg-red .input--field .input--naked input[type="email"], .input--field .input--naked .bg-red input[type="email"], .bg-red .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-red input[type="tel"], .bg-red .input--field .input--naked input[type="number"], .input--field .input--naked .bg-red input[type="number"], .bg-red .input--field .input--naked input[type="password"], .input--field .input--naked .bg-red input[type="password"], .bg-red .input--field .input--naked input[type="url"], .input--field .input--naked .bg-red input[type="url"],
+    .bg-Red .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Red input[type="text"],
+    .bg-Red .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Red input[type="email"],
+    .bg-Red .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Red input[type="tel"],
+    .bg-Red .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Red input[type="number"],
+    .bg-Red .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Red input[type="password"],
+    .bg-Red .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Red input[type="url"],
+    .bg-Red .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Red input[type="text"],
+    .bg-Red .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Red input[type="email"],
+    .bg-Red .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Red input[type="tel"],
+    .bg-Red .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Red input[type="number"],
+    .bg-Red .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Red input[type="password"],
+    .bg-Red .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Red input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-yellow --ghost.input:not([type="range"]), .bg-yellow --naked.input:not([type="range"]), .bg-yellow --ghost.input:not([type="checkbox"]), .bg-yellow --naked.input:not([type="checkbox"]), .bg-yellow --ghost.input:not([type="radio"]), .bg-yellow --naked.input:not([type="radio"]), .bg-yellow --ghost.input:not([type="submit"]), .bg-yellow --naked.input:not([type="submit"]), .bg-yellow --ghost.input[type="text"], .bg-yellow --naked.input[type="text"], .bg-yellow --ghost.input[type="email"], .bg-yellow --naked.input[type="email"], .bg-yellow --ghost.input[type="tel"], .bg-yellow --naked.input[type="tel"], .bg-yellow --ghost.input[type="number"], .bg-yellow --naked.input[type="number"], .bg-yellow --ghost.input[type="url"], .bg-yellow --naked.input[type="url"],
-    .bg-Yellow --ghost.input:not([type="range"]),
-    .bg-Yellow --naked.input:not([type="range"]),
-    .bg-Yellow --ghost.input:not([type="checkbox"]),
-    .bg-Yellow --naked.input:not([type="checkbox"]),
-    .bg-Yellow --ghost.input:not([type="radio"]),
-    .bg-Yellow --naked.input:not([type="radio"]),
-    .bg-Yellow --ghost.input:not([type="submit"]),
-    .bg-Yellow --naked.input:not([type="submit"]),
-    .bg-Yellow --ghost.input[type="text"],
-    .bg-Yellow --naked.input[type="text"],
-    .bg-Yellow --ghost.input[type="email"],
-    .bg-Yellow --naked.input[type="email"],
-    .bg-Yellow --ghost.input[type="tel"],
-    .bg-Yellow --naked.input[type="tel"],
-    .bg-Yellow --ghost.input[type="number"],
-    .bg-Yellow --naked.input[type="number"],
-    .bg-Yellow --ghost.input[type="url"],
-    .bg-Yellow --naked.input[type="url"] {
+    .bg-brown .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-brown input[type="text"], .bg-brown .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-brown input[type="email"], .bg-brown .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-brown input[type="tel"], .bg-brown .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-brown input[type="number"], .bg-brown .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-brown input[type="password"], .bg-brown .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-brown input[type="url"], .bg-brown .input--field .input--naked input[type="text"], .input--field .input--naked .bg-brown input[type="text"], .bg-brown .input--field .input--naked input[type="email"], .input--field .input--naked .bg-brown input[type="email"], .bg-brown .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-brown input[type="tel"], .bg-brown .input--field .input--naked input[type="number"], .input--field .input--naked .bg-brown input[type="number"], .bg-brown .input--field .input--naked input[type="password"], .input--field .input--naked .bg-brown input[type="password"], .bg-brown .input--field .input--naked input[type="url"], .input--field .input--naked .bg-brown input[type="url"],
+    .bg-Brown .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Brown input[type="text"],
+    .bg-Brown .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Brown input[type="email"],
+    .bg-Brown .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Brown input[type="tel"],
+    .bg-Brown .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Brown input[type="number"],
+    .bg-Brown .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Brown input[type="password"],
+    .bg-Brown .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Brown input[type="url"],
+    .bg-Brown .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Brown input[type="text"],
+    .bg-Brown .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Brown input[type="email"],
+    .bg-Brown .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Brown input[type="tel"],
+    .bg-Brown .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Brown input[type="number"],
+    .bg-Brown .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Brown input[type="password"],
+    .bg-Brown .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Brown input[type="url"] {
+      color: white;
+      border-color: white; }
+    .bg-yellow .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-yellow input[type="text"], .bg-yellow .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-yellow input[type="email"], .bg-yellow .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-yellow input[type="tel"], .bg-yellow .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-yellow input[type="number"], .bg-yellow .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-yellow input[type="password"], .bg-yellow .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-yellow input[type="url"], .bg-yellow .input--field .input--naked input[type="text"], .input--field .input--naked .bg-yellow input[type="text"], .bg-yellow .input--field .input--naked input[type="email"], .input--field .input--naked .bg-yellow input[type="email"], .bg-yellow .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-yellow input[type="tel"], .bg-yellow .input--field .input--naked input[type="number"], .input--field .input--naked .bg-yellow input[type="number"], .bg-yellow .input--field .input--naked input[type="password"], .input--field .input--naked .bg-yellow input[type="password"], .bg-yellow .input--field .input--naked input[type="url"], .input--field .input--naked .bg-yellow input[type="url"],
+    .bg-Yellow .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Yellow input[type="text"],
+    .bg-Yellow .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Yellow input[type="email"],
+    .bg-Yellow .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Yellow input[type="tel"],
+    .bg-Yellow .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Yellow input[type="number"],
+    .bg-Yellow .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Yellow input[type="password"],
+    .bg-Yellow .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Yellow input[type="url"],
+    .bg-Yellow .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Yellow input[type="text"],
+    .bg-Yellow .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Yellow input[type="email"],
+    .bg-Yellow .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Yellow input[type="tel"],
+    .bg-Yellow .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Yellow input[type="number"],
+    .bg-Yellow .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Yellow input[type="password"],
+    .bg-Yellow .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Yellow input[type="url"] {
       color: #101010;
       border-color: #101010; }
-    .bg-orange --ghost.input:not([type="range"]), .bg-orange --naked.input:not([type="range"]), .bg-orange --ghost.input:not([type="checkbox"]), .bg-orange --naked.input:not([type="checkbox"]), .bg-orange --ghost.input:not([type="radio"]), .bg-orange --naked.input:not([type="radio"]), .bg-orange --ghost.input:not([type="submit"]), .bg-orange --naked.input:not([type="submit"]), .bg-orange --ghost.input[type="text"], .bg-orange --naked.input[type="text"], .bg-orange --ghost.input[type="email"], .bg-orange --naked.input[type="email"], .bg-orange --ghost.input[type="tel"], .bg-orange --naked.input[type="tel"], .bg-orange --ghost.input[type="number"], .bg-orange --naked.input[type="number"], .bg-orange --ghost.input[type="url"], .bg-orange --naked.input[type="url"],
-    .bg-Orange --ghost.input:not([type="range"]),
-    .bg-Orange --naked.input:not([type="range"]),
-    .bg-Orange --ghost.input:not([type="checkbox"]),
-    .bg-Orange --naked.input:not([type="checkbox"]),
-    .bg-Orange --ghost.input:not([type="radio"]),
-    .bg-Orange --naked.input:not([type="radio"]),
-    .bg-Orange --ghost.input:not([type="submit"]),
-    .bg-Orange --naked.input:not([type="submit"]),
-    .bg-Orange --ghost.input[type="text"],
-    .bg-Orange --naked.input[type="text"],
-    .bg-Orange --ghost.input[type="email"],
-    .bg-Orange --naked.input[type="email"],
-    .bg-Orange --ghost.input[type="tel"],
-    .bg-Orange --naked.input[type="tel"],
-    .bg-Orange --ghost.input[type="number"],
-    .bg-Orange --naked.input[type="number"],
-    .bg-Orange --ghost.input[type="url"],
-    .bg-Orange --naked.input[type="url"] {
+    .bg-orange .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-orange input[type="text"], .bg-orange .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-orange input[type="email"], .bg-orange .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-orange input[type="tel"], .bg-orange .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-orange input[type="number"], .bg-orange .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-orange input[type="password"], .bg-orange .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-orange input[type="url"], .bg-orange .input--field .input--naked input[type="text"], .input--field .input--naked .bg-orange input[type="text"], .bg-orange .input--field .input--naked input[type="email"], .input--field .input--naked .bg-orange input[type="email"], .bg-orange .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-orange input[type="tel"], .bg-orange .input--field .input--naked input[type="number"], .input--field .input--naked .bg-orange input[type="number"], .bg-orange .input--field .input--naked input[type="password"], .input--field .input--naked .bg-orange input[type="password"], .bg-orange .input--field .input--naked input[type="url"], .input--field .input--naked .bg-orange input[type="url"],
+    .bg-Orange .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Orange input[type="text"],
+    .bg-Orange .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Orange input[type="email"],
+    .bg-Orange .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Orange input[type="tel"],
+    .bg-Orange .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Orange input[type="number"],
+    .bg-Orange .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Orange input[type="password"],
+    .bg-Orange .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Orange input[type="url"],
+    .bg-Orange .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Orange input[type="text"],
+    .bg-Orange .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Orange input[type="email"],
+    .bg-Orange .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Orange input[type="tel"],
+    .bg-Orange .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Orange input[type="number"],
+    .bg-Orange .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Orange input[type="password"],
+    .bg-Orange .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Orange input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-pink --ghost.input:not([type="range"]), .bg-pink --naked.input:not([type="range"]), .bg-pink --ghost.input:not([type="checkbox"]), .bg-pink --naked.input:not([type="checkbox"]), .bg-pink --ghost.input:not([type="radio"]), .bg-pink --naked.input:not([type="radio"]), .bg-pink --ghost.input:not([type="submit"]), .bg-pink --naked.input:not([type="submit"]), .bg-pink --ghost.input[type="text"], .bg-pink --naked.input[type="text"], .bg-pink --ghost.input[type="email"], .bg-pink --naked.input[type="email"], .bg-pink --ghost.input[type="tel"], .bg-pink --naked.input[type="tel"], .bg-pink --ghost.input[type="number"], .bg-pink --naked.input[type="number"], .bg-pink --ghost.input[type="url"], .bg-pink --naked.input[type="url"],
-    .bg-Pink --ghost.input:not([type="range"]),
-    .bg-Pink --naked.input:not([type="range"]),
-    .bg-Pink --ghost.input:not([type="checkbox"]),
-    .bg-Pink --naked.input:not([type="checkbox"]),
-    .bg-Pink --ghost.input:not([type="radio"]),
-    .bg-Pink --naked.input:not([type="radio"]),
-    .bg-Pink --ghost.input:not([type="submit"]),
-    .bg-Pink --naked.input:not([type="submit"]),
-    .bg-Pink --ghost.input[type="text"],
-    .bg-Pink --naked.input[type="text"],
-    .bg-Pink --ghost.input[type="email"],
-    .bg-Pink --naked.input[type="email"],
-    .bg-Pink --ghost.input[type="tel"],
-    .bg-Pink --naked.input[type="tel"],
-    .bg-Pink --ghost.input[type="number"],
-    .bg-Pink --naked.input[type="number"],
-    .bg-Pink --ghost.input[type="url"],
-    .bg-Pink --naked.input[type="url"] {
+    .bg-pink .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-pink input[type="text"], .bg-pink .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-pink input[type="email"], .bg-pink .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-pink input[type="tel"], .bg-pink .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-pink input[type="number"], .bg-pink .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-pink input[type="password"], .bg-pink .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-pink input[type="url"], .bg-pink .input--field .input--naked input[type="text"], .input--field .input--naked .bg-pink input[type="text"], .bg-pink .input--field .input--naked input[type="email"], .input--field .input--naked .bg-pink input[type="email"], .bg-pink .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-pink input[type="tel"], .bg-pink .input--field .input--naked input[type="number"], .input--field .input--naked .bg-pink input[type="number"], .bg-pink .input--field .input--naked input[type="password"], .input--field .input--naked .bg-pink input[type="password"], .bg-pink .input--field .input--naked input[type="url"], .input--field .input--naked .bg-pink input[type="url"],
+    .bg-Pink .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Pink input[type="text"],
+    .bg-Pink .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Pink input[type="email"],
+    .bg-Pink .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Pink input[type="tel"],
+    .bg-Pink .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Pink input[type="number"],
+    .bg-Pink .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Pink input[type="password"],
+    .bg-Pink .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Pink input[type="url"],
+    .bg-Pink .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Pink input[type="text"],
+    .bg-Pink .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Pink input[type="email"],
+    .bg-Pink .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Pink input[type="tel"],
+    .bg-Pink .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Pink input[type="number"],
+    .bg-Pink .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Pink input[type="password"],
+    .bg-Pink .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Pink input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-purple --ghost.input:not([type="range"]), .bg-purple --naked.input:not([type="range"]), .bg-purple --ghost.input:not([type="checkbox"]), .bg-purple --naked.input:not([type="checkbox"]), .bg-purple --ghost.input:not([type="radio"]), .bg-purple --naked.input:not([type="radio"]), .bg-purple --ghost.input:not([type="submit"]), .bg-purple --naked.input:not([type="submit"]), .bg-purple --ghost.input[type="text"], .bg-purple --naked.input[type="text"], .bg-purple --ghost.input[type="email"], .bg-purple --naked.input[type="email"], .bg-purple --ghost.input[type="tel"], .bg-purple --naked.input[type="tel"], .bg-purple --ghost.input[type="number"], .bg-purple --naked.input[type="number"], .bg-purple --ghost.input[type="url"], .bg-purple --naked.input[type="url"],
-    .bg-Purple --ghost.input:not([type="range"]),
-    .bg-Purple --naked.input:not([type="range"]),
-    .bg-Purple --ghost.input:not([type="checkbox"]),
-    .bg-Purple --naked.input:not([type="checkbox"]),
-    .bg-Purple --ghost.input:not([type="radio"]),
-    .bg-Purple --naked.input:not([type="radio"]),
-    .bg-Purple --ghost.input:not([type="submit"]),
-    .bg-Purple --naked.input:not([type="submit"]),
-    .bg-Purple --ghost.input[type="text"],
-    .bg-Purple --naked.input[type="text"],
-    .bg-Purple --ghost.input[type="email"],
-    .bg-Purple --naked.input[type="email"],
-    .bg-Purple --ghost.input[type="tel"],
-    .bg-Purple --naked.input[type="tel"],
-    .bg-Purple --ghost.input[type="number"],
-    .bg-Purple --naked.input[type="number"],
-    .bg-Purple --ghost.input[type="url"],
-    .bg-Purple --naked.input[type="url"] {
+    .bg-purple .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-purple input[type="text"], .bg-purple .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-purple input[type="email"], .bg-purple .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-purple input[type="tel"], .bg-purple .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-purple input[type="number"], .bg-purple .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-purple input[type="password"], .bg-purple .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-purple input[type="url"], .bg-purple .input--field .input--naked input[type="text"], .input--field .input--naked .bg-purple input[type="text"], .bg-purple .input--field .input--naked input[type="email"], .input--field .input--naked .bg-purple input[type="email"], .bg-purple .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-purple input[type="tel"], .bg-purple .input--field .input--naked input[type="number"], .input--field .input--naked .bg-purple input[type="number"], .bg-purple .input--field .input--naked input[type="password"], .input--field .input--naked .bg-purple input[type="password"], .bg-purple .input--field .input--naked input[type="url"], .input--field .input--naked .bg-purple input[type="url"],
+    .bg-Purple .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Purple input[type="text"],
+    .bg-Purple .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Purple input[type="email"],
+    .bg-Purple .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Purple input[type="tel"],
+    .bg-Purple .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Purple input[type="number"],
+    .bg-Purple .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Purple input[type="password"],
+    .bg-Purple .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Purple input[type="url"],
+    .bg-Purple .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Purple input[type="text"],
+    .bg-Purple .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Purple input[type="email"],
+    .bg-Purple .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Purple input[type="tel"],
+    .bg-Purple .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Purple input[type="number"],
+    .bg-Purple .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Purple input[type="password"],
+    .bg-Purple .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Purple input[type="url"] {
       color: white;
       border-color: white; }
-    .bg-turquoise --ghost.input:not([type="range"]), .bg-turquoise --naked.input:not([type="range"]), .bg-turquoise --ghost.input:not([type="checkbox"]), .bg-turquoise --naked.input:not([type="checkbox"]), .bg-turquoise --ghost.input:not([type="radio"]), .bg-turquoise --naked.input:not([type="radio"]), .bg-turquoise --ghost.input:not([type="submit"]), .bg-turquoise --naked.input:not([type="submit"]), .bg-turquoise --ghost.input[type="text"], .bg-turquoise --naked.input[type="text"], .bg-turquoise --ghost.input[type="email"], .bg-turquoise --naked.input[type="email"], .bg-turquoise --ghost.input[type="tel"], .bg-turquoise --naked.input[type="tel"], .bg-turquoise --ghost.input[type="number"], .bg-turquoise --naked.input[type="number"], .bg-turquoise --ghost.input[type="url"], .bg-turquoise --naked.input[type="url"],
-    .bg-Turquoise --ghost.input:not([type="range"]),
-    .bg-Turquoise --naked.input:not([type="range"]),
-    .bg-Turquoise --ghost.input:not([type="checkbox"]),
-    .bg-Turquoise --naked.input:not([type="checkbox"]),
-    .bg-Turquoise --ghost.input:not([type="radio"]),
-    .bg-Turquoise --naked.input:not([type="radio"]),
-    .bg-Turquoise --ghost.input:not([type="submit"]),
-    .bg-Turquoise --naked.input:not([type="submit"]),
-    .bg-Turquoise --ghost.input[type="text"],
-    .bg-Turquoise --naked.input[type="text"],
-    .bg-Turquoise --ghost.input[type="email"],
-    .bg-Turquoise --naked.input[type="email"],
-    .bg-Turquoise --ghost.input[type="tel"],
-    .bg-Turquoise --naked.input[type="tel"],
-    .bg-Turquoise --ghost.input[type="number"],
-    .bg-Turquoise --naked.input[type="number"],
-    .bg-Turquoise --ghost.input[type="url"],
-    .bg-Turquoise --naked.input[type="url"] {
+    .bg-turquoise .input--field .input--ghost input[type="text"], .input--field .input--ghost .bg-turquoise input[type="text"], .bg-turquoise .input--field .input--ghost input[type="email"], .input--field .input--ghost .bg-turquoise input[type="email"], .bg-turquoise .input--field .input--ghost input[type="tel"], .input--field .input--ghost .bg-turquoise input[type="tel"], .bg-turquoise .input--field .input--ghost input[type="number"], .input--field .input--ghost .bg-turquoise input[type="number"], .bg-turquoise .input--field .input--ghost input[type="password"], .input--field .input--ghost .bg-turquoise input[type="password"], .bg-turquoise .input--field .input--ghost input[type="url"], .input--field .input--ghost .bg-turquoise input[type="url"], .bg-turquoise .input--field .input--naked input[type="text"], .input--field .input--naked .bg-turquoise input[type="text"], .bg-turquoise .input--field .input--naked input[type="email"], .input--field .input--naked .bg-turquoise input[type="email"], .bg-turquoise .input--field .input--naked input[type="tel"], .input--field .input--naked .bg-turquoise input[type="tel"], .bg-turquoise .input--field .input--naked input[type="number"], .input--field .input--naked .bg-turquoise input[type="number"], .bg-turquoise .input--field .input--naked input[type="password"], .input--field .input--naked .bg-turquoise input[type="password"], .bg-turquoise .input--field .input--naked input[type="url"], .input--field .input--naked .bg-turquoise input[type="url"],
+    .bg-Turquoise .input--field .input--ghost input[type="text"],
+    .input--field .input--ghost .bg-Turquoise input[type="text"],
+    .bg-Turquoise .input--field .input--ghost input[type="email"],
+    .input--field .input--ghost .bg-Turquoise input[type="email"],
+    .bg-Turquoise .input--field .input--ghost input[type="tel"],
+    .input--field .input--ghost .bg-Turquoise input[type="tel"],
+    .bg-Turquoise .input--field .input--ghost input[type="number"],
+    .input--field .input--ghost .bg-Turquoise input[type="number"],
+    .bg-Turquoise .input--field .input--ghost input[type="password"],
+    .input--field .input--ghost .bg-Turquoise input[type="password"],
+    .bg-Turquoise .input--field .input--ghost input[type="url"],
+    .input--field .input--ghost .bg-Turquoise input[type="url"],
+    .bg-Turquoise .input--field .input--naked input[type="text"],
+    .input--field .input--naked .bg-Turquoise input[type="text"],
+    .bg-Turquoise .input--field .input--naked input[type="email"],
+    .input--field .input--naked .bg-Turquoise input[type="email"],
+    .bg-Turquoise .input--field .input--naked input[type="tel"],
+    .input--field .input--naked .bg-Turquoise input[type="tel"],
+    .bg-Turquoise .input--field .input--naked input[type="number"],
+    .input--field .input--naked .bg-Turquoise input[type="number"],
+    .bg-Turquoise .input--field .input--naked input[type="password"],
+    .input--field .input--naked .bg-Turquoise input[type="password"],
+    .bg-Turquoise .input--field .input--naked input[type="url"],
+    .input--field .input--naked .bg-Turquoise input[type="url"] {
       color: #101010;
       border-color: #101010; }
 
@@ -7800,41 +7880,33 @@ fieldset legend {
   letter-spacing: 1px;
   font-size: 14px; }
 
-.input:not([type="range"]):not(:placeholder-shown), .input:not([type="checkbox"]):not(:placeholder-shown), .input:not([type="radio"]):not(:placeholder-shown), .input:not([type="submit"]):not(:placeholder-shown), .input[type="text"]:not(:placeholder-shown), .input[type="email"]:not(:placeholder-shown), .input[type="tel"]:not(:placeholder-shown), .input[type="number"]:not(:placeholder-shown), .input[type="url"]:not(:placeholder-shown),
-input:not([type="range"]):not(:placeholder-shown),
-input:not([type="checkbox"]):not(:placeholder-shown),
-input:not([type="radio"]):not(:placeholder-shown),
-input:not([type="submit"]):not(:placeholder-shown),
-input[type="text"]:not(:placeholder-shown),
-input[type="email"]:not(:placeholder-shown),
-input[type="tel"]:not(:placeholder-shown),
-input[type="number"]:not(:placeholder-shown),
-input[type="url"]:not(:placeholder-shown) {
-  border: 1px solid rgba(16, 16, 16, 0.25); }
+.input--field input:not([type]) {
+  outline: 1px dashed #eb0f33; }
 
-input[type="color"] {
+.input--field input[type="color"] {
   -webkit-appearance: none;
   border: none;
   width: 32px;
   height: 32px; }
-  input[type="color"]::-webkit-color-swatch-wrapper {
+  .input--field input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0; }
-  input[type="color"]::-webkit-color-swatch {
+  .input--field input[type="color"]::-webkit-color-swatch {
     border: none; }
 
-textarea {
+.input--field textarea {
   resize: none;
   min-height: 5rem; }
-  textarea:not(:empty) {
+  .input--field textarea:not(:empty) {
     border: 1px solid rgba(16, 16, 16, 0.25); }
 
-select {
+.input--field select {
+  min-width: 12rem;
   -webkit-appearance: none;
   background-image: linear-gradient(to right bottom, rgba(16, 16, 16, 0.2) 50%, transparent 50%), linear-gradient(to left bottom, rgba(16, 16, 16, 0.2) 50%, transparent 50%);
   background-size: 0.3rem 0.3rem, 0.3rem 0.3rem;
   background-repeat: no-repeat;
   background-position: top 50% right 1rem, top 50% right calc(1.3rem - 1px); }
-  select:hover {
+  .input--field select:hover {
     animation: selectArrow 0.3s forwards; }
 
 @keyframes selectArrow {
@@ -7862,93 +7934,101 @@ label + input[type="button"],
 label + input[type="submit"] {
   margin-top: 1rem; }
 
-input[type="range"] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: auto;
-  border: none !important;
-  box-shadow: none;
-  outline: none; }
-  input[type="range"]:focus {
+.input--range {
+  display: flex; }
+  .input--range input[type="range"] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    background: transparent; }
+  .input--range input[type="range"]:focus {
     outline: none; }
-  input[type="range"]::-webkit-slider-runnable-track {
+  .input--range input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 8px;
+    height: 0.5rem;
     cursor: pointer;
     animate: 0.2s;
-    background: rgba(16, 16, 16, 0.1);
-    border-radius: 5px; }
-  input[type="range"]::-webkit-slider-thumb {
-    border: 1px solid rgba(48, 48, 48, 0.25);
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030;
+    background: rgba(127, 127, 127, 0.5);
+    border-radius: 25px;
+    border: 0px solid #000101; }
+  .input--range input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030;
+    border: 0px solid #101010;
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
     background: white;
+    box-shadow: 0 0 0.5rem 0 rgba(16, 16, 16, 0.25);
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -4px; }
-  input[type="range"]:focus::-webkit-slider-runnable-track {
-    background: rgba(48, 48, 48, 0.5); }
-  input[type="range"]::-moz-range-track {
+    margin-top: -3.6px; }
+  .input--range input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: rgba(127, 127, 127, 0.5); }
+  .input--range input[type="range"]::-moz-range-track {
     width: 100%;
-    height: 8.4px;
+    height: 0.5rem;
     cursor: pointer;
     animate: 0.2s;
-    background: #1eb3e0;
-    border-radius: 1.3px;
-    border: 0.2px solid #303030; }
-  input[type="range"]::-moz-range-thumb {
-    border: 1px solid #101010;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030;
+    background: rgba(127, 127, 127, 0.5);
+    border-radius: 25px;
+    border: 0px solid #000101; }
+  .input--range input[type="range"]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030;
+    border: 0px solid #101010;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
     background: white;
     cursor: pointer; }
-  input[type="range"]::-ms-track {
+  .input--range input[type="range"]::-ms-track {
     width: 100%;
-    height: 8.4px;
+    height: 0.5rem;
     cursor: pointer;
     animate: 0.2s;
     background: transparent;
     border-color: transparent;
-    border-width: 16px 0;
+    border-width: 1rem 0;
     color: transparent; }
-  input[type="range"]::-ms-fill-lower {
-    background: #2a6495;
-    border: 0.2px solid #303030;
-    border-radius: 2.6px; }
-  input[type="range"]::-ms-fill-upper {
-    background: #1eb3e0;
-    border: 0.2px solid #303030;
-    border-radius: 2.6px; }
-  input[type="range"]::-ms-thumb {
-    border: 1px solid #101010;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
+  .input--range input[type="range"]::-ms-fill-lower {
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px solid #000101;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030; }
+  .input--range input[type="range"]::-ms-fill-upper {
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px solid #000101;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030; }
+  .input--range input[type="range"]::-ms-thumb {
+    box-shadow: 0px 0px 0px color Black, 0px 0px 0px #303030;
+    border: 0px solid #101010;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
     background: white;
     cursor: pointer; }
-  input[type="range"]:focus::-ms-fill-lower {
-    background: #1eb3e0; }
-  input[type="range"]:focus::-ms-fill-upper {
-    background: #1eb3e0; }
+  .input--range input[type="range"]:focus::-ms-fill-lower {
+    background: rgba(127, 127, 127, 0.5); }
+  .input--range input[type="range"]:focus::-ms-fill-upper {
+    background: rgba(127, 127, 127, 0.5); }
 
-[class^="input-check-color"] {
+.input--check-color {
   height: auto;
   width: auto;
   padding: 0;
   margin: 0; }
-  [class^="input-check-color"] label {
+  .input--check-color label {
     display: block;
     margin-top: 0;
     padding: 0;
     padding-left: 2rem;
     line-height: 2;
     position: relative; }
-    [class^="input-check-color"] label:after, [class^="input-check-color"] label:before {
+    .input--check-color label:after, .input--check-color label:before {
       content: ""; }
-  [class^="input-check-color"] input[type="checkbox"],
-  [class^="input-check-color"] input[type="radio"] {
+  .input--check-color input[type="checkbox"],
+  .input--check-color input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -7958,7 +8038,7 @@ input[type="range"] {
     padding: 0;
     position: absolute;
     opacity: 0; }
-  [class^="input-check-color"] label:before {
+  .input--check-color label:before {
     display: block;
     position: absolute;
     left: 0;
@@ -7967,7 +8047,7 @@ input[type="range"] {
     height: 1.5em;
     border-radius: 50%;
     box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.15); }
-  [class^="input-check-color"] label:after {
+  .input--check-color label:after {
     display: block;
     position: absolute;
     left: 0.5em;
@@ -7977,7 +8057,7 @@ input[type="range"] {
     background-color: white;
     border-radius: 50%;
     transform: scale(0); }
-  [class^="input-check-color"] input:checked + label:after {
+  .input--check-color input:checked + label:after {
     animation: inputCheckColorPop 0.3s forwards; }
 
 @keyframes inputCheckColorPop {
@@ -7989,92 +8069,99 @@ input[type="range"] {
     transform: scale(1); } }
 
 .input-check-color--Black label:before {
-  background-color: #101010;
-  box-shadow: 0 2px 0 0 black; }
+  background-color: var(--check-color, #101010);
+  box-shadow: 0 2px 0 0 var(--check-color, black); }
 
 .input-check-color--Black label:after {
   background-color: white; }
 
 .input-check-color--Dark label:before {
-  background-color: #303030;
-  box-shadow: 0 2px 0 0 black; }
+  background-color: var(--check-color, #303030);
+  box-shadow: 0 2px 0 0 var(--check-color, black); }
 
 .input-check-color--Dark label:after {
   background-color: white; }
 
 .input-check-color--White label:before {
-  background-color: #ffffff;
-  box-shadow: 0 2px 0 0 #cccccc; }
+  background-color: var(--check-color, #ffffff);
+  box-shadow: 0 2px 0 0 var(--check-color, #cccccc); }
 
 .input-check-color--White label:after {
   background-color: #101010; }
 
 .input-check-color--Offwhite label:before {
-  background-color: #f7f7f7;
-  box-shadow: 0 2px 0 0 #c4c4c4; }
+  background-color: var(--check-color, #f7f7f7);
+  box-shadow: 0 2px 0 0 var(--check-color, #c4c4c4); }
 
 .input-check-color--Offwhite label:after {
   background-color: #101010; }
 
+.input-check-color--Gray label:before {
+  background-color: var(--check-color, #7f7f7f);
+  box-shadow: 0 2px 0 0 var(--check-color, #4c4c4c); }
+
+.input-check-color--Gray label:after {
+  background-color: white; }
+
 .input-check-color--Green label:before {
-  background-color: #10c565;
-  box-shadow: 0 2px 0 0 #086735; }
+  background-color: var(--check-color, #10c565);
+  box-shadow: 0 2px 0 0 var(--check-color, #086735); }
 
 .input-check-color--Green label:after {
   background-color: white; }
 
 .input-check-color--Blue label:before {
-  background-color: #1eb3e0;
-  box-shadow: 0 2px 0 0 #126b86; }
+  background-color: var(--check-color, #1eb3e0);
+  box-shadow: 0 2px 0 0 var(--check-color, #126b86); }
 
 .input-check-color--Blue label:after {
   background-color: white; }
 
 .input-check-color--Red label:before {
-  background-color: #eb0f33;
-  box-shadow: 0 2px 0 0 #8b091e; }
+  background-color: var(--check-color, #eb0f33);
+  box-shadow: 0 2px 0 0 var(--check-color, #8b091e); }
 
 .input-check-color--Red label:after {
   background-color: white; }
 
 .input-check-color--Brown label:before {
-  background-color: #aa834f;
-  box-shadow: 0 2px 0 0 #644d2f; }
+  background-color: var(--check-color, #aa834f);
+  box-shadow: 0 2px 0 0 var(--check-color, #644d2f); }
 
 .input-check-color--Brown label:after {
   background-color: white; }
 
 .input-check-color--Yellow label:before {
-  background-color: #f5c505;
-  box-shadow: 0 2px 0 0 #917503; }
+  background-color: var(--check-color, #f5c505);
+  box-shadow: 0 2px 0 0 var(--check-color, #917503); }
 
 .input-check-color--Yellow label:after {
   background-color: #101010; }
 
 .input-check-color--Orange label:before {
-  background-color: #f6790b;
-  box-shadow: 0 2px 0 0 #954906; }
+  background-color: var(--check-color, #f6790b);
+  box-shadow: 0 2px 0 0 var(--check-color, #954906); }
 
 .input-check-color--Orange label:after {
   background-color: white; }
 
 .input-check-color--Pink label:before {
-  background-color: #ca1387;
-  box-shadow: 0 2px 0 0 #6d0a49; }
+  background-color: var(--check-color, #ca1387);
+  box-shadow: 0 2px 0 0 var(--check-color, #6d0a49); }
 
 .input-check-color--Pink label:after {
   background-color: white; }
 
 .input-check-color--Purple label:before {
-  background-color: #7329b1;
-  box-shadow: 0 2px 0 0 #3d165e; }
+  background-color: var(--check-color, #7329b1);
+  box-shadow: 0 2px 0 0 var(--check-color, #3d165e); }
 
 .input-check-color--Purple label:after {
   background-color: white; }
 
 .input-check-color--Turquoise label:before {
-  background-color: #3feac3;
-  box-shadow: 0 2px 0 0 #13b08c; }
+  background-color: var(--check-color, #3feac3);
+  box-shadow: 0 2px 0 0 var(--check-color, #13b08c); }
 
 .input-check-color--Turquoise label:after {
   background-color: #101010; }
@@ -8082,12 +8169,12 @@ input[type="range"] {
 .input-check--nolabel label {
   text-indent: -999em; }
 
-[class*="input-check-icon"] {
+.input--check-icon {
   height: auto;
   width: auto;
   padding: 0;
   margin: 0; }
-  [class*="input-check-icon"] label {
+  .input--check-icon label {
     display: block;
     margin-top: 0;
     padding: 0;
@@ -8095,10 +8182,10 @@ input[type="range"] {
     line-height: 2.5;
     position: relative;
     min-width: 2.5em; }
-    [class*="input-check-icon"] label:after, [class*="input-check-icon"] label:before {
+    .input--check-icon label:after, .input--check-icon label:before {
       content: ""; }
-  [class*="input-check-icon"] input[type="checkbox"],
-  [class*="input-check-icon"] input[type="radio"] {
+  .input--check-icon input[type="checkbox"],
+  .input--check-icon input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -8108,7 +8195,7 @@ input[type="range"] {
     padding: 0;
     position: absolute;
     opacity: 0; }
-  [class*="input-check-icon"] label:before {
+  .input--check-icon label:before {
     display: block;
     position: absolute;
     left: 0;
@@ -8120,7 +8207,7 @@ input[type="range"] {
     text-indent: 0;
     box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.15);
     border-radius: 3px; }
-  [class*="input-check-icon"] label:after {
+  .input--check-icon label:after {
     display: block;
     position: absolute;
     left: 0.5em;
@@ -8129,16 +8216,16 @@ input[type="range"] {
     height: 0.5em;
     background-color: white;
     transform: scale(0); }
-  [class*="input-check-icon"] input:checked + label:before {
+  .input--check-icon input:checked + label:before {
     background-color: #101010;
     color: white; }
-  [class*="input-check-icon"].input-check--nolabel {
+  .input--check-icon.input-check--nolabel {
     width: 2.5rem;
     margin: 0.25rem;
     display: inline-block; }
-    [class*="input-check-icon"].input-check--nolabel:before {
+    .input--check-icon.input-check--nolabel:before {
       top: 0 !important; }
-    [class*="input-check-icon"].input-check--nolabel + .input-check--nolabel {
+    .input--check-icon.input-check--nolabel + .input-check--nolabel {
       margin: 0.25rem; }
 
 .input-check-icon--play label:before {
@@ -8266,20 +8353,20 @@ input[type="range"] {
     .input-check-text.input-check--nolabel + .input-check--nolabel {
       margin: 0.25rem; }
 
-.input-switch {
+.input--switch {
   display: inline-block;
   position: relative; }
-  .input-switch input[type="checkbox"] {
+  .input--switch input[type="checkbox"] {
     position: absolute; }
-    .input-switch input[type="checkbox"]:not(.hidden) {
+    .input--switch input[type="checkbox"]:not(.hidden) {
       width: 0;
       height: 0;
       opacity: 0; }
-    .input-switch input[type="checkbox"] + label {
+    .input--switch input[type="checkbox"] + label {
       padding-left: 3.25rem;
       position: relative;
       cursor: pointer; }
-      .input-switch input[type="checkbox"] + label:before {
+      .input--switch input[type="checkbox"] + label:before {
         content: "";
         display: block;
         position: absolute;
@@ -8289,7 +8376,7 @@ input[type="range"] {
         height: 1.5rem;
         background: white;
         border-radius: 0.75rem; }
-      .input-switch input[type="checkbox"] + label:after {
+      .input--switch input[type="checkbox"] + label:after {
         content: "";
         display: block;
         position: absolute;
@@ -8301,24 +8388,24 @@ input[type="range"] {
         border-radius: 0.75rem;
         opacity: 0;
         transition: 0.3s; }
-    .input-switch input[type="checkbox"]:checked + label:after {
+    .input--switch input[type="checkbox"]:checked + label:after {
       opacity: 1;
       transition: 0.3s; }
-    .input-switch input[type="checkbox"] + label:before {
+    .input--switch input[type="checkbox"] + label:before {
       box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.2) inset; }
-    .input-switch input[type="checkbox"] + label:after {
+    .input--switch input[type="checkbox"] + label:after {
       opacity: 1;
       height: 1rem;
       width: 1rem;
       background-color: rgba(16, 16, 16, 0.25);
       transform: none; }
-    .input-switch input[type="checkbox"]:checked + label:after {
+    .input--switch input[type="checkbox"]:checked + label:after {
       opacity: 1;
       background-color: #1eb3e0;
       left: 1.25rem; }
-    .input-switch input[type="checkbox"] + label {
+    .input--switch input[type="checkbox"] + label {
       position: relative;
-      padding-left: 2rem; }
+      padding-left: 4rem; }
 
 input[type="checkbox"] {
   -webkit-appearance: checkbox;
@@ -8328,12 +8415,12 @@ input[type="checkbox"] {
   max-width: auto;
   min-width: auto; }
 
-.input-checkbox {
+.input--checkbox {
   height: auto;
   width: auto;
   padding: 0;
   margin: 0; }
-  .input-checkbox input[type="checkbox"] {
+  .input--checkbox input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -8341,15 +8428,15 @@ input[type="checkbox"] {
     height: 0;
     margin: 0;
     padding: 0; }
-    .input-checkbox input[type="checkbox"]:not(.hidden) {
+    .input--checkbox input[type="checkbox"]:not(.hidden) {
       width: 0;
       height: 0;
       opacity: 0; }
-    .input-checkbox input[type="checkbox"] + label {
+    .input--checkbox input[type="checkbox"] + label {
       padding-left: 1rem;
       position: relative;
       cursor: pointer; }
-      .input-checkbox input[type="checkbox"] + label:before {
+      .input--checkbox input[type="checkbox"] + label:before {
         content: "";
         display: block;
         position: absolute;
@@ -8358,7 +8445,7 @@ input[type="checkbox"] {
         width: 1rem;
         height: 1rem;
         background: white; }
-      .input-checkbox input[type="checkbox"] + label:after {
+      .input--checkbox input[type="checkbox"] + label:after {
         content: "";
         display: block;
         position: absolute;
@@ -8370,29 +8457,29 @@ input[type="checkbox"] {
         border-radius: 0%;
         opacity: 0;
         transition: 0.3s; }
-    .input-checkbox input[type="checkbox"]:checked + label:after {
+    .input--checkbox input[type="checkbox"]:checked + label:after {
       opacity: 1;
       transition: 0.3s; }
-    .input-checkbox input[type="checkbox"] + label:before {
+    .input--checkbox input[type="checkbox"] + label:before {
       box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.2) inset;
       top: 50%;
       transform: translateY(-50%); }
-    .input-checkbox input[type="checkbox"] + label:after {
+    .input--checkbox input[type="checkbox"] + label:after {
       top: calc(50%);
       transform: translateY(-50%); }
-    .input-checkbox input[type="checkbox"] + label {
+    .input--checkbox input[type="checkbox"] + label {
       position: relative;
       padding: 0;
       padding-left: 2rem;
       width: auto;
       line-height: 2rem;
       margin: 0; }
-    .input-checkbox input[type="checkbox"].hidden {
+    .input--checkbox input[type="checkbox"].hidden {
       width: 0;
       height: 0;
       opacity: 0;
       position: absolute; }
-      .input-checkbox input[type="checkbox"].hidden + label:before, .input-checkbox input[type="checkbox"].hidden + label:after {
+      .input--checkbox input[type="checkbox"].hidden + label:before, .input--checkbox input[type="checkbox"].hidden + label:after {
         content: none; }
 
 input[type="radio"] {
@@ -8403,12 +8490,12 @@ input[type="radio"] {
   max-width: auto;
   min-width: auto; }
 
-.input-radio {
+.input--radio {
   height: auto;
   width: auto;
   padding: 0;
   margin: 0; }
-  .input-radio input[type="radio"] {
+  .input--radio input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -8416,15 +8503,15 @@ input[type="radio"] {
     height: 0;
     margin: 0;
     padding: 0; }
-    .input-radio input[type="radio"] {
+    .input--radio input[type="radio"] {
       width: 0;
       height: 0;
       opacity: 0; }
-    .input-radio input[type="radio"] + label {
+    .input--radio input[type="radio"] + label {
       padding-left: 1rem;
       position: relative;
       cursor: pointer; }
-      .input-radio input[type="radio"] + label:before {
+      .input--radio input[type="radio"] + label:before {
         content: "";
         display: block;
         position: absolute;
@@ -8434,7 +8521,7 @@ input[type="radio"] {
         height: 1rem;
         background: white;
         border-radius: 100%; }
-      .input-radio input[type="radio"] + label:after {
+      .input--radio input[type="radio"] + label:after {
         content: "";
         display: block;
         position: absolute;
@@ -8446,17 +8533,17 @@ input[type="radio"] {
         border-radius: 100%;
         opacity: 0;
         transition: 0.3s; }
-    .input-radio input[type="radio"]:checked + label:after {
+    .input--radio input[type="radio"]:checked + label:after {
       opacity: 1;
       transition: 0.3s; }
-    .input-radio input[type="radio"] + label:before {
+    .input--radio input[type="radio"] + label:before {
       box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.2) inset;
       top: 50%;
       transform: translateY(-50%); }
-    .input-radio input[type="radio"] + label:after {
+    .input--radio input[type="radio"] + label:after {
       top: calc(50%);
       transform: translateY(-50%); }
-    .input-radio input[type="radio"] + label {
+    .input--radio input[type="radio"] + label {
       position: relative;
       padding: 0;
       padding-left: 2rem;
@@ -12381,6 +12468,18 @@ table {
     table.responsive tr {
       display: block; } }
 
+h1 + .input--field,
+h2 + .input--field,
+h3 + .input--field,
+h4 + .input--field,
+h5 + .input--field,
+h6 + .input--field,
+pre + .input--field,
+p + .input--field,
+.input--field + .input--field,
+form + .input--field {
+  margin-top: 1rem; }
+
 h1 + h1,
 h2 + h1,
 h3 + h1,
@@ -12389,6 +12488,7 @@ h5 + h1,
 h6 + h1,
 pre + h1,
 p + h1,
+.input--field + h1,
 form + h1 {
   margin-top: 0.75rem; }
 
@@ -12400,6 +12500,7 @@ h5 + p,
 h6 + p,
 pre + p,
 p + p,
+.input--field + p,
 form + p {
   margin-top: 2rem; }
 
@@ -12411,6 +12512,7 @@ h5 + .row,
 h6 + .row,
 pre + .row,
 p + .row,
+.input--field + .row,
 form + .row {
   margin-top: 1rem; }
 
@@ -12470,6 +12572,13 @@ p + h4,
 p + h5,
 p + h6,
 p + p,
+.input--field + h1,
+.input--field + h2,
+.input--field + h3,
+.input--field + h4,
+.input--field + h5,
+.input--field + h6,
+.input--field + p,
 form + h1,
 form + h2,
 form + h3,
@@ -12495,6 +12604,8 @@ pre + table,
 pre + .table__container,
 p + table,
 p + .table__container,
+.input--field + table,
+.input--field + .table__container,
 form + table,
 form + .table__container {
   margin-top: 8.33333vw; }
@@ -12531,6 +12642,10 @@ p + input,
 p + select,
 p + textarea,
 p + form,
+.input--field + input,
+.input--field + select,
+.input--field + textarea,
+.input--field + form,
 form + input,
 form + select,
 form + textarea,
@@ -12569,6 +12684,10 @@ form + form {
     p + select,
     p + textarea,
     p + form,
+    .input--field + input,
+    .input--field + select,
+    .input--field + textarea,
+    .input--field + form,
     form + input,
     form + select,
     form + textarea,

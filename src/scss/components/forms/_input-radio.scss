@@ -1,5 +1,4 @@
 @if output(form-radio) {
-	@debug "gets heerrreeeee!";
 	input[type="radio"] {
 		-webkit-appearance: radio;
 		-moz-appearance: radio;
