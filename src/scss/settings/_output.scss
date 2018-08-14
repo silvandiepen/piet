@@ -59,7 +59,7 @@ $output-form-check-text: false !default; //
 $output-form-checkbox: true !default; //
 $output-form-hidden: true !default; //
 $output-form-radio: true !default; //
-$output-form-range: false !default; //
+$output-form-range: true !default; //
 $output-form-switch: false !default; //
 $output-form-input: true !default; //
 $output-form-textarea: true !default; //
@@ -152,7 +152,7 @@ $output: (
 	"form-checkbox": true, 
 	"form-hidden": true, 
 	"form-radio": true, 
-	"form-range": false, 
+	"form-range": true, 
 	"form-switch": false, 
 	"form-input": true, 
 	"form-textarea": true, 
