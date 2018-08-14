@@ -1,6 +1,6 @@
 {
 	"name": "piet",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"description": "Piets Style",
 	"main": "index.scss",
 	"scripts": {
