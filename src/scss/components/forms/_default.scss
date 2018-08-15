@@ -14,7 +14,7 @@
 		transition: filter 0.3s;
 	}
 	&:focus {
-		outline: 2px solid rgba($color-primary, 0.25);
+		outline: 2px solid rgba($primary-color, 0.25);
 	}
 	&:focus,
 	&:focus:hover {

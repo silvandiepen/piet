@@ -12447,8 +12447,6 @@ section.basic {
   content: var(--show-more, ""); }
 
 table {
-  background-color: white;
-  border: 1px solid rgba(16, 16, 16, 0.1);
   border-radius: 3px;
   border-collapse: collapse; }
   table + table {
@@ -12471,10 +12469,6 @@ table {
   table th {
     text-align: left;
     font-weight: bold; }
-  table tr:nth-child(even) {
-    background-color: rgba(30, 179, 224, 0.05); }
-    table tr:nth-child(even) code {
-      background-color: rgba(30, 179, 224, 0.1); }
   table thead:last-child th:last-child td,
   table thead:last-child th:last-child th,
   table tbody:last-child th:last-child td,
@@ -12482,6 +12476,10 @@ table {
   table tfoot:last-child th:last-child td,
   table tfoot:last-child th:last-child th {
     border-bottom: none; }
+  table.even-odd tr:nth-child(even) {
+    background-color: rgba(115, 41, 177, 0.05); }
+    table.even-odd tr:nth-child(even) code {
+      background-color: rgba(115, 41, 177, 0.1); }
   @media only screen and (min-width: 0px) and (max-width: 750px) {
     table.responsive {
       display: block;

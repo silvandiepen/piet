@@ -7,17 +7,17 @@
 	border-radius: $base-border-radius;
 	width: auto;
 	padding: 0.75em 1.5em;
-	background-color: $color-primary;
-	color: contra($color-primary);
+	background-color: $primary-color;
+	color: contra($primary-color);
 	border: none;
 	font-size: 1rem;
 	cursor: pointer;
 	line-height: 1em;
-	border-bottom: var(--button-depth,2px) solid darken($color-primary, 10%);
+	border-bottom: var(--button-depth,2px) solid darken($primary-color, 10%);
 	text-decoration: none;
 	&:hover {
-		background-color: darken($color-primary, 10%);
-		border-bottom: var(--button-depth,2px) solid darken($color-primary, 20%);
+		background-color: darken($primary-color, 10%);
+		border-bottom: var(--button-depth,2px) solid darken($primary-color, 20%);
 	}
 	&:focus {
 		outline: none;

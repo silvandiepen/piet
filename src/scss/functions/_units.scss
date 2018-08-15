@@ -59,11 +59,3 @@
 	$num: $number / ($number * 0 + 1);
 	@return $num;
 }
-
-@function even($number) {
-	@debug $number % 2;
-	/*   @if $number % 2 == 0{
-  $num: true;
-} @else { $num: false; }
-@return $num; */
-}
